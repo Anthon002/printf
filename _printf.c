@@ -8,16 +8,19 @@
 
 int _printf(const char *format,...)
 {
+	int count = 0;
 	va_list args;
 	va_start(args, format);
-
-	int count = 0;
 
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
+			if (*format == 'r')
+			{
+				continue;
+			}
 			switch (*format)
 			{
 				case 'c':
@@ -42,6 +45,21 @@ int _printf(const char *format,...)
 				case '%':
 					{
 						_putchar('%');
+						++count;
+						break;
+					}
+				case 'r':
+					{
+						int count = 0;
+						char *str = "%r";
+
+						char *p = str;
+						while (*p != '0')
+						{
+							putchar(*p);
+							count++;
+							p++;
+						};
 						++count;
 						break;
 					}
