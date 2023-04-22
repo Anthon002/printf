@@ -48,20 +48,6 @@ int _printf(const char *format,...)
 						++count;
 						break;
 					}
-				case 'r':
-					{
-						int count = 0;
-						char *str = "%r";
-
-						char *p = str;
-						while (*p != '0')
-						{
-							putchar(*p);
-							count++;
-							p++;
-						};
-						++count;
-						break;
 					}
 				default:
 					{
