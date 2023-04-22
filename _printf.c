@@ -1,15 +1,16 @@
 #include "main.h"
-
 /**
  * _printf - replicate the printf function
  * @...: variable number of arguments
+ * @format: character
  * Return:count
  */
 
-int _printf(const char *format,...)
+int _printf(const char *format, ...)
 {
 	int count = 0;
 	va_list args;
+
 	va_start(args, format);
 
 	while (*format)
@@ -26,14 +27,17 @@ int _printf(const char *format,...)
 				case 'c':
 					{
 						int ch = va_arg(args, int);
+
 						_putchar(ch);
 						++count;
 						break;
 					}
 				case 's':
 					{
-						char *str = va_arg(args,char *);
+						char *str = va_arg(args, char *);
+
 						int i = 0;
+
 						while (str[i])
 						{
 							_putchar(str[i]);
@@ -48,7 +52,6 @@ int _printf(const char *format,...)
 						++count;
 						break;
 					}
-					
 				default:
 					{
 						return (-1);
@@ -64,5 +67,5 @@ int _printf(const char *format,...)
 		}
 
 		va_end(args);
-		return count;
+		return (count);
 	}
