@@ -60,6 +60,7 @@ int _printf(const char *format, ...)
 					{
 						count +=print_b(args);
 						break;
+					}
 				default:
 					{
 						return (-1);
