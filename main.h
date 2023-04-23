@@ -7,5 +7,6 @@ int _printf(const char *format,...);
 int _putchar(char c);
 int _strlen(const char *str);
 int print_b(va_list args);
+int _write_buffered(char *buffer, int buf_size);
 
 #endif
