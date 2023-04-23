@@ -58,10 +58,18 @@ int _printf(const char *format, ...)
 					}
 				case 'b':
 					{
-						count +=print_b(args);
+						unsigned int n = va_arg(args, unsigned int);
+						unsigned int m = 1 << ((sizeof(unsigned int) * 8) - 1);
+						int count = 0;
+						while (m)
+						{
+							_putchar(n & m ? '1' : '0');
+							m >>= 1;
+						}
+						++count;
 						break;
 					}
-				default:
+					default:
 					{
 						return (-1);
 					};
