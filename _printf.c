@@ -50,6 +50,12 @@ int _printf(const char *format, ...)
 						}
 						break;
 					}
+				case 'i':
+				case 'd':
+					{
+						_print_number(va_arg(args,int), &count);
+						break;
+					}
 				case '%':
 					{
 						_putchar('%');
