@@ -56,6 +56,10 @@ int _printf(const char *format, ...)
 						++count;
 						break;
 					}
+				case 'b':
+					{
+						count +=print_b(args);
+						break;
 				default:
 					{
 						return (-1);
