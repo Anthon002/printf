@@ -9,13 +9,26 @@
 int print_b(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
-	unsigned int m = 1 << ((sizeof(unsigned int) * 8) - 1);
 	int count = 0;
-	while (m)
+
+       	if (n == 0) {
+	       	_putchar('0');
+	       	count++;
+	}
+	else
 	{
-		_putchar(n & m ? '1' : '0');
-		m >>= 1;
-		count++;
+		unsigned int mask = 1 << ((sizeof(unsigned int) * 8) - 1);
+		while (mask && !(n & mask))
+		{
+			mask >>= 1;
+		}
+
+		while (mask)
+		{
+			_putchar((n & mask) ? '1' : '0');
+			count++;
+			mask >>= 1;
+		}
 	}
 	return count;
 }
