@@ -1,24 +1,28 @@
 #include "main.h"
 /**
  * _printf - replicate the printf function
+ * description - handling different output cases (e.g %d for integer, %s for characters...)
+ * 		using variadic functions,
+ * 		used switch statements to handle format specifiers(c and s) and %
  * @...: variable number of arguments
  * @format: character
+ *
  * Return:count
  */
 
 int _printf(const char *format, ...)
 {
-	int count = 0;
+	int count = 0;/* for returning the number of characters printed */
 	va_list args;
 
 	va_start(args, format);
 
-	while (*format)
+	while (*format)/*pointer to each character == true , pointing to null byte == false */
 	{
-		if (*format == '%')
+		if (*format == '%')/* ready to check for format specifers */
 		{
 			format++;
-			if (*format == 'r')
+			if (*format == 'r')/*trying to deal with invalid format secifier r*/
 			{
 				continue;
 			}
@@ -27,7 +31,7 @@ int _printf(const char *format, ...)
 				case 'c':
 					{
 						int ch = va_arg(args, int);
-
+						/*if *format == c, handle int values*/
 						_putchar(ch);
 						++count;
 						break;
@@ -60,7 +64,9 @@ int _printf(const char *format, ...)
 		}
 			else
 			{
-				_putchar(*format);
+				_putchar(*format);/*if not format specifiers putchar orgina
+						   *original characters
+						   */
 				++count;
 			}
 			++format;
