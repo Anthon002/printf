@@ -7,7 +7,7 @@
  * Return: count
  */
 
-int _print_pointer(va_list args, int count)
+int _print_p(va_list args, int count)
 {
     void *ptr = va_arg(args, void *);
     unsigned long n = (unsigned long)ptr;
