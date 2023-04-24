@@ -10,43 +10,32 @@
 int _print_p(va_list args, int count)
 {
 	void *ptr = va_arg(args, void *);
-	char *nil = "(nil)";
-	unsigned long int n = (unsigned long int)ptr;
-	char *digits = "0123456789abcdef";
-	int i, j;
-	char buffer[100];
-
-	if (!ptr)
+    unsigned long n = (unsigned long)ptr;
+    _putchar('0');
+    _putchar('x');
+    count += 2;
+    if (n == 0)
+    {
+        _putchar('0');
+        count++;
+    }
+    else
+    {
+        char digits[] = "0123456789abcdef";
+        char buffer[20];
+        int i = 0;
+        while (n > 0)
 	{
-		for (i = 0; nil[i]; i++)
-		{
-			_putchar(nil[i]);
-			count++;
-		}
-		return (count);
-	}
-
-	i = 0;
-	while (n)
+            buffer[i] = digits[n % 16];
+            n /= 16;
+            i++;
+        }
+        while (i > 0)
 	{
-		buffer[i] = digits[n % 16];
-		n /= 16;
-		i++;
-	}
-	if (i == 0)
-	{
-		buffer[i] = '0';
-		i++;
-	}
-	buffer[i] = '\0';
-	_putchar('0');
-	_putchar('x');
-	count += 2;
-	for (j = i - 1; j >= 0; j--)
-	{
-		_putchar(buffer[j]);
-		count++;
-	}
-	return (count);
+            i--;
+            _putchar(buffer[i]);
+            count++;
+        }
+    }
+    return count;
 }
-

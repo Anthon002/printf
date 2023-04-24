@@ -71,6 +71,7 @@ int _printf(const char *format, ...)
 					{
 						count = _print_p(args, count);
 						break;
+					}
 			/*	case 'u':
 					{
 						unsigned int n = va_arg(args, unsigned int);
