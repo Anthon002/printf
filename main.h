@@ -12,5 +12,6 @@ int _write_buffered(char *buffer, int buf_size);
 int print_integer(va_list args);
 int power(int base, int exp);
 void _print_number(int n, int *count);
+void _print_uoxX(unsigned int n, unsigned int base, int *count, int is_upper);
 
 #endif

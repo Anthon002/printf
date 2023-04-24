@@ -67,6 +67,30 @@ int _printf(const char *format, ...)
 						count += print_b(args);
 						break;
 					}
+				case 'u':
+					{
+						unsigned int n = va_arg(args, unsigned int);
+						_print_uoxX(n, 10, &count, 0);
+						break;
+					}
+				case 'o':
+					{
+						unsigned int n = va_arg(args, unsigned int);
+						_print_uoxX(n, 8, &count, 0);
+						break;
+					}
+				case 'x':
+					{
+						unsigned int n = va_arg(args, unsigned int);
+						_print_uoxX(n, 16, &count, 0);
+						break;
+					}
+				case 'X':
+					{
+						unsigned int n = va_arg(args, unsigned int);
+						_print_uoxX(n, 16, &count, 0);
+						break;
+					}
 					default:
 					{
 						return (-1);
