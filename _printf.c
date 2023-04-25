@@ -13,9 +13,6 @@
 int _printf(const char *format, ...)
 {
 	int count = 0;/* for returning the number of characters printed */
-	int flag_plus;
-	int flag_space;
-	int flag_hash;
 
 	va_list args;
 
@@ -26,21 +23,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')/* ready to check for format specifers */
 		{
 			format++;
-			flag_plus = 0;
-			flag_space = 0;
-			flag_hash = 0;
 
-			while (*format == '+' || *format == ' ' || *format == '#')
-			{
-				if (*format == '+')
-					flag_plus = 1;
-				else if (*format == ' ')
-					flag_space = 1;
-				else if (*format == '#')
-					flag_hash = 1;
-
-				format++;
-			}
 			if (*format == 'r')/*trying to deal with invalid format secifier r*/
 			{
 				continue;
