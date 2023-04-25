@@ -13,9 +13,9 @@
 int _printf(const char *format, ...)
 {
 	int count = 0;/* for returning the number of characters printed */
-	int flag_plus = 0;
-	int flag_space = 0;
-	int flag_hash = 0;
+	int flag_plus;
+	int flag_space;
+	int flag_hash;
 
 	va_list args;
 
