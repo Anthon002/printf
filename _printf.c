@@ -2,8 +2,8 @@
 /**
  * _printf - replicate the printf function
  * description - handling different output cases (e.g %d for integer, %s for characters...)
- * 		using variadic functions,
- * 		used switch statements to handle format specifiers(c and s) and %
+ *using variadic functions,
+ *used switch statements to handle format specifiers(c and s) and %
  * @...: variable number of arguments
  * @format: character
  *
