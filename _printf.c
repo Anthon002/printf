@@ -96,6 +96,11 @@ int _printf(const char *format, ...)
 						_print_uoxX(n, 16, &count, 0);
 						break;
 					}
+				case 'S':
+					{
+						count += _print_S(va_arg(args, char *));
+						break;
+					}
 					default:
 					{
 						return (-1);
