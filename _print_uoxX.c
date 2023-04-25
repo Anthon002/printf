@@ -8,7 +8,7 @@
  * @is_upper: upper
  * Return: void
  */
-​
+
 void _print_uoxX(unsigned int n, unsigned int base, int *count, int is_upper)
 {
 	const char *digits = "0123456789ABCDEF";
